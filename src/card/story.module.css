@@ -1,0 +1,15 @@
+.story{
+    text-align: center;
+    margin: 3%;
+    border: solid 5px;
+    border-color: white;
+    padding: 2%;
+}
+.title{
+    font-size: 2rem;
+}
+.description{
+    line-height: 2;
+    padding: 5%;
+    padding-top: 0%;
+}

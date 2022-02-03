@@ -1,0 +1,13 @@
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    margin: 6% 2% 2% 2%;
+}
+.description{
+    margin: 2%;
+}
+.btn{
+    margin: 2%;
+}
