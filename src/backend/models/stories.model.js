@@ -12,6 +12,9 @@ const storiesSchema = new Schema({
         type: String,
         required:true,
         minlength: 3
+    },
+    likes:{
+        type: String
     }
 });
 const Stories = mongoose.model('Stories', storiesSchema);
