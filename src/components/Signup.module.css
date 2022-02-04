@@ -7,12 +7,14 @@
 }
 .input{
     text-align: center;
-    height: 50px;
+    width: 200%;
+    height: 100px;
     border: none;
     border-bottom: solid 5px;
     background-color: white;
     font-size: 30px;
     margin: 5%;
+    margin-left: -50%;
     padding: 2%;
     border-radius: 10px;
 }
@@ -63,6 +65,7 @@
         font-size: 1.5rem;
     }
     .input{
+        width: 100%;
         text-align: center;
         height: 50px;
         border: none;

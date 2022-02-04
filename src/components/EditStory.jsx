@@ -24,7 +24,7 @@ const EditStory = (props) => {
         })
         console.log(story);
     }
-    console.log(props.id);
+    
     return  <form className={classes.form}>
     <input className={classes.title} name="title" type="text" placeholder="New Title" onChange={inputHandler} />
     <textarea className={classes.description} name="description"  placeholder="New Story" onChange={inputHandler} />

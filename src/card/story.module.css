@@ -1,9 +1,14 @@
 .story{
     text-align: center;
-    margin: 3%;
-    border: solid 5px;
-    border-color: white;
+    /* border: solid 5px; */
+    /* border-color: white; */
     padding: 2%;
+    width: 400px;
+    height: 400px;
+    box-shadow: 3px 6px 5px 0px;
+    border-radius: 15px;
+    background-color: white;
+
 }
 .title{
     font-size: 2rem;
@@ -11,5 +16,45 @@
 .description{
     line-height: 2;
     padding: 5%;
-    padding-top: 0%;
+    height: 50%;
+    border-radius: 20px;
+    overflow-y: scroll;
+}
+.btn{
+    margin-top: 5%;
+}
+.delete{
+    margin: 3%;
+    width: 40%;
+    border: none;
+}
+.edit{
+    margin: 3%;
+    width: 40%;
+    border: none;
+}
+.like{
+    display: flex;
+    margin-left: 40%;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+.like>p{
+    margin: 3%;
+}
+.buttons{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+@media screen and (max-width: 650px) {
+    .story{
+        margin-left: 3%;
+        width: 250px;
+        height: 300px;
+    }
+    .description{
+       text-align: left;
+    }
 }

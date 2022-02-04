@@ -1,12 +1,15 @@
 .container{
     display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     height: 60vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
-
+.item{
+    margin: 3%;
+}
 @media screen and (max-width: 650px) {
     .container{
-        flex-direction: column;
+        height: 60vh;
+        overflow-y: scroll;
     }
 }

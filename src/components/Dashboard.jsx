@@ -6,14 +6,9 @@ import axios from "axios";
 const Dashboard = () => {
     const [stories, setStories] = useState([{
         title: 'My Story',
-        description: 'This is a dummy story'
+        description: 'This is a dummy story',
+        likes: 0
     }]);
-
-    const deleteHandler = (e) => {
-        axios.delete('http://localhost:5000/stories/'+ e.target.value)
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-    }
 
     useEffect(()=>{
         axios.get('http://localhost:5000/stories/')
@@ -24,11 +19,12 @@ const Dashboard = () => {
     return <div className={classes.container}>
         {
         stories.map((story, index) => {
-            return <div key={index}>
+            return <div className={classes.item} key={index}>
                 <Story 
                 id={story._id}
                 title={story.title}
                 description={story.description}
+                likes={story.likes}
                 />
         </div>
         })
