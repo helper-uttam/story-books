@@ -17,6 +17,10 @@ const EditStory = (props) => {
         props.renderForm(false);
     }
 
+    const backHandler = () => {
+        props.renderForm(false)
+    }
+
     const inputHandler = (e) => {
         const { name, value } = e.target;
         setStory({
@@ -28,7 +32,10 @@ const EditStory = (props) => {
     return  <form className={classes.form}>
     <input className={classes.title} name="title" type="text" placeholder="New Title" onChange={inputHandler} />
     <textarea className={classes.description} name="description"  placeholder="New Story" onChange={inputHandler} />
-    <button className={classes.btn} onClick={updateHandler}>Update</button>
+    <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
+    <button className={classes.update} onClick={updateHandler}>Update</button>
+    <button className={classes.back} onClick={backHandler}>Back</button>
+    </div>
 </form>
 }
 export default EditStory;

@@ -5,8 +5,8 @@ import axios from "axios";
 
 const Dashboard = () => {
     const [stories, setStories] = useState([{
-        title: 'My Story',
-        description: 'This is a dummy story',
+        title: '',
+        description: '',
         likes: 0
     }]);
 
@@ -14,11 +14,14 @@ const Dashboard = () => {
         axios.get('http://localhost:5000/stories/')
         .then(res => setStories(res.data))
         .catch(err => console.log(err))
+
     },[]);
 
     return <div className={classes.container}>
         {
-        stories.map((story, index) => {
+        stories.sort(function (a, b) {
+            return b.likes - a.likes;
+        }).map((story, index) => {
             return <div className={classes.item} key={index}>
                 <Story 
                 id={story._id}

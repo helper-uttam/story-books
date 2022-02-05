@@ -27,11 +27,23 @@
     margin: 3%;
     width: 40%;
     border: none;
+    background-color: #ff7979;
+    color: white;
+    transition: 1s;
+}
+.delete:hover{
+    background-color: #d63031;
 }
 .edit{
     margin: 3%;
     width: 40%;
     border: none;
+    background-color: #38ada9;
+    color: white;
+    transition: 1s;
+}
+.edit:hover{
+    background-color: #079992;
 }
 .like{
     display: flex;
