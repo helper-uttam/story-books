@@ -13,6 +13,9 @@ import { Link } from 'react-router-dom';
           <Link to="/" className="nav-link">SignUp</Link>
           </li>
           <li className="navbar-item">
+          <Link to="/login" className="nav-link">Login</Link>
+          </li>
+          <li className="navbar-item">
           <Link to="/home" className="nav-link">DashBoard</Link>
           </li>
           <li className="navbar-item">

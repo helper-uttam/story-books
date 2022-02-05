@@ -20,5 +20,21 @@ router.route('/add').post((req, res) => {
     .then(() => res.json('User added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 })
+router.route('/auth').get((req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const user = {
+        email, 
+        password
+    };
+    
+    User.findOne(user)
+    .then((user) => {
+        console.log(req);
+        return user ? res.json(true):res.json(false)
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+})
 
 module.exports = router;

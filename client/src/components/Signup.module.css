@@ -58,11 +58,11 @@
     .icons{
         display: flex;
         justify-content:space-evenly;
-        margin: 20px 20px 30px 20px;
+        margin: 30px 20px 30px 20px;
     }
     .footer{
-        padding-bottom: 5%;
-        font-size: 1.5rem;
+        padding-bottom: 3%;
+        font-size: 1.2rem;
     }
     .input{
         width: 100%;

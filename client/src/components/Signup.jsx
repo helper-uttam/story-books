@@ -1,9 +1,10 @@
 import classes from "./Signup.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Signup = () => {
-
+    const history = useHistory();
     const [users, setUser] = useState({
         email: '',
         password: ''
@@ -26,9 +27,10 @@ const Signup = () => {
             email: '',
             password: ''
         })
-        window.location="/home";
+        history.push('/home')
     };
-    console.log(localStorage.getItem('auth'));
+
+    
     return <div className={classes.container}>
         <div className={classes.title}>
             <h3>SignUp</h3>
