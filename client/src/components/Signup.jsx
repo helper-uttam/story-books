@@ -9,7 +9,7 @@ const Signup = () => {
         email: '',
         password: ''
     });
-    const [authenticated, setAuth] = useState(false);
+    const [authenticated, setAuth] = useState("false");
 
 
     const changeHandler = (e) => {
@@ -29,7 +29,7 @@ const Signup = () => {
             email: '',
             password: ''
         })
-        if(authenticated){
+        if(authenticated === "true"){
             localStorage.setItem('email', users.email);
             history.push('/home');
             window.location.reload();
