@@ -24,18 +24,19 @@ const Login = () => {
         console.log(users);
         e.preventDefault();
         
-        axios.get('http://localhost:5000/users/auth', users)
-        .then(res => {
-            console.log(res.data);
+     
+        axios.get(`http://localhost:5000/users/auth/${users.email}`)
+        .then( (response) => { 
+        console.log(response.data);
         })
         .catch(error => console.log(error))
-        
-        // setUser({
-        //     email: '',
-        //     password: ''
-        // })
-        // history.push('/home');
-        // window.location.reload();
+        localStorage.setItem('email',users.email);
+        setUser({
+            email: '',
+            password: ''
+        })
+        history.push('/home');
+        window.location.reload();
     }
 
     return<div className={classes.container}>
