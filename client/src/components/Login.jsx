@@ -1,19 +1,24 @@
 import classes from "./Signup.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+
 
 const Login = () => {
-    const [users, setUser] = useState({
-        "email": '',
-        "password": ''
-    });
+    const history = useHistory();
 
+    const [users, setUser] = useState({
+        email: '',
+        password: ''
+    });
+    
     const changeHandler = (e) => {
-        const { name, value } = e.target;
+       const { name, value } = e.target;
         setUser({
             ...users, [name]: value
         })
     };
+
 
     const submitHandler = (e) => {
         console.log(users);
@@ -21,19 +26,26 @@ const Login = () => {
         
         axios.get('http://localhost:5000/users/auth', users)
         .then(res => {
-            console.log(res);
+            console.log(res.data);
         })
         .catch(error => console.log(error))
+        
+        // setUser({
+        //     email: '',
+        //     password: ''
+        // })
+        // history.push('/home');
+        // window.location.reload();
     }
 
-    return <div className={classes.container}>
+    return<div className={classes.container}>
     <div className={classes.title}>
         <h3>LogIn</h3>
     </div>
-    <form className={classes.form} onSubmit={submitHandler}>
+    <form className={classes.form}>
         <input className={classes.input} name="email" type="email" onChange={changeHandler} placeholder="storyteller@gmail.com" defaultValue={users.username}></input><br/>
         <input className={classes.input} name="password" type="password" onChange={changeHandler} placeholder="Password" defaultValue={users.password} autoComplete="true"></input><br/>
-        <button type="submit" className={classes.btn}>Login</button>
+        <button onClick={submitHandler} type="submit" className={classes.btn}>LogIn</button>
     </form>
     <footer className={classes.footer}>
         <div className={classes.icons}>

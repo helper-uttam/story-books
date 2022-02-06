@@ -15,6 +15,9 @@ const storiesSchema = new Schema({
     },
     likes:{
         type: String
+    },
+    date:{
+        type: String
     }
 });
 const Stories = mongoose.model('Stories', storiesSchema);

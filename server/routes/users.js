@@ -23,7 +23,8 @@ router.route('/add').post((req, res) => {
 router.route('/auth').get((req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-
+    console.log(req.body);
+    console.log(req);
     const user = {
         email, 
         password
@@ -31,7 +32,6 @@ router.route('/auth').get((req, res) => {
     
     User.findOne(user)
     .then((user) => {
-        console.log(req);
         return user ? res.json(true):res.json(false)
     })
     .catch(err => res.status(400).json('Error: ' + err));

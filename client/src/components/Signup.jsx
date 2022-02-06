@@ -27,7 +27,9 @@ const Signup = () => {
             email: '',
             password: ''
         })
-        history.push('/home')
+        localStorage.setItem('email', users.email);
+        history.push('/home');
+        window.location.reload();
     };
 
     

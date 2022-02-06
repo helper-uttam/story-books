@@ -7,27 +7,47 @@ const Dashboard = () => {
     const [stories, setStories] = useState([{
         title: '',
         description: '',
-        likes: 0
+        likes: '',
+        date: ''
     }]);
+    const [user, setUser] = useState('');
+    const [liked, setLiked] = useState(false);
+    const [didMount, setDidMount] = useState(false); 
 
     useEffect(()=>{
         axios.get('http://localhost:5000/stories/')
-        .then(res => setStories(res.data))
+        .then(res => res.data)
+        .then(data => setStories(data))
         .catch(err => console.log(err))
+        setDidMount(true);
+   return () => setDidMount(false);
+    },[stories]);
 
-    },[]);
-
+    const checkLike = (ID) => {
+        axios.get(`http://localhost:5000/stories/likes/${ID}`)
+        .then(res => {
+            let data = res.data;
+            if(data.includes(user)){
+                return setLiked(true);
+            }
+        })
+    }
     return <div className={classes.container}>
         {
         stories.sort(function (a, b) {
-            return b.likes - a.likes;
+            // console.log(a.likes + " " + b.likes);
+            return b.likes.length - a.likes.length;
         }).map((story, index) => {
+            let likes = story.likes;
+            let len = likes.toString().split(',');
             return <div className={classes.item} key={index}>
                 <Story 
                 id={story._id}
                 title={story.title}
                 description={story.description}
-                likes={story.likes}
+                likes={len.length}
+                liked={liked}
+                date={story.date}
                 />
         </div>
         })

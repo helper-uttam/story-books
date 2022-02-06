@@ -1,6 +1,6 @@
 .container{
     text-align: center;
-    margin-top: 120px;
+    margin-top: 3%;
 }
 .form{
     display: inline-block;
@@ -33,14 +33,14 @@
     border: none;
     border-radius: 50px;
 }
-.title{
-    font-size: 35px;
-    font-family: 'Arial';
+.title > h3{
+    font-size: 3rem;
+    font-family: 'Supermercado One', cursive;
 }
 .footer{
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
     text-align: center;
     font-size: 30px;
@@ -48,6 +48,7 @@
 }
 .icons > svg{
     margin: 5%;
+    margin-bottom: 0%;
     cursor: pointer;
 }
 
@@ -59,6 +60,9 @@
         display: flex;
         justify-content:space-evenly;
         margin: 30px 20px 30px 20px;
+    }
+    .icons>svg{
+        width: 80%;
     }
     .footer{
         padding-bottom: 3%;

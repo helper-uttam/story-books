@@ -5,12 +5,21 @@ import classes from "./EditStory.module.css";
 const EditStory = (props) => {
     const [story, setStory] = useState({
         title: '',
-        description: ''
+        description: '',
+        likes: '0',
+        date: ''
     })
 
     const updateHandler = () => {
         console.log('update');
         const id = props.id;
+        var newDate = new Date();
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let month = months[newDate.getMonth()];
+        const dateOfStory = newDate.getDate() + ',' + month + ' ' + newDate.getFullYear();
+        story.date = dateOfStory.toString();
+        console.log(story);
+
         axios.post('http://localhost:5000/stories/update/'+id, story)
         .then(res => console.log(res))
         .catch(err => console.log(err))

@@ -10,10 +10,14 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const title = req.body.title;
     const description = req.body.description;
+    const likes = req.body.likes;
+    const date = req.body.date;
 
     const newStories = new Stories({
         title, 
-        description
+        description,
+        likes,
+        date,
     });
 
     newStories.save()
@@ -34,33 +38,42 @@ router.route('/:id').get((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
-  router.route('/likes').get((req, res) => {
+  router.route('/likes/:id').get((req, res) => {
     Stories.findById(req.params.id)
-    .then(exercise => res.json(exercise))
+    .then(story => res.json(story.likes))
     .catch(err => res.status(400).json('Error: ' + err));
   });
 
+  //like
   router.route('/like/:id').post((req, res) => {
+    const likedUser = req.body.email;
+    console.log(likedUser);
     Stories.findById(req.params.id)
       .then(stories => {
-        let likes = parseInt(stories.likes);
-        ++likes;
-        console.log(likes);
-        stories.likes = likes;
+        stories.likes = stories.likes + ',' + likedUser;
+        console.log(stories.likes.split(',')
+        );
         stories.save()
           .then(() => res.json('Story Liked!'))
           .catch(err => res.status(400).json('Error: ' + err));
       })
       .catch(err => res.status(400).json('Error: ' + err));
   });
+
+  //dislike
   router.route('/dislike/:id').post((req, res) => {
+    const dislikedUser = req.body.email;
+    console.log(dislikedUser);
     Stories.findById(req.params.id)
       .then(stories => {
-        let likes = parseInt(stories.likes);
-        --likes;
-        console.log(likes);
-        stories.likes = likes;
-        stories.save()
+        let obj = stories.likes.split(',');
+        console.log(stories);
+        let updatedLikes = obj.filter((value) => { 
+          return value !== dislikedUser;
+      });
+      stories.likes=updatedLikes.toString(),
+      console.log(stories);
+      stories.save()
           .then(() => res.json('Story Disiked!'))
           .catch(err => res.status(400).json('Error: ' + err));
       })
