@@ -9,7 +9,6 @@ const Signup = () => {
         email: '',
         password: ''
     });
-    const [authenticated, setAuth] = useState("false");
 
 
     const changeHandler = (e) => {
@@ -22,21 +21,18 @@ const Signup = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         axios.post('http://localhost:5000/users/add', users)
-        .then(res => setAuth(res.data))
-        .catch(error => console.log(error))
-     
-        setUser({
-            email: '',
-            password: ''
-        })
-        if(authenticated === "true"){
+        .then(()=>{
             localStorage.setItem('email', users.email);
             history.push('/home');
             window.location.reload();
-        }else{
+            setUser({
+                email: '',
+                password: ''
+            })    
+        })
+        .catch(()=>{
             history.push('/signup');
-        }
-        
+        })
     };
 
     
