@@ -21,11 +21,11 @@
 .btn{
     margin-top: 20px;
     height: auto;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     transition: 2s;
     cursor: pointer;
     border: none;
-    padding: 5%;
+    padding: 10%;
 }
 .btn:hover{
     background-color: #535c68;
@@ -38,7 +38,6 @@
     font-family: 'Supermercado One', cursive;
 }
 .footer{
-    position: fixed;
     left: 0;
     bottom: 0px;
     width: 100%;

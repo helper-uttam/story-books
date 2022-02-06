@@ -27,7 +27,6 @@ function App() {
       <Navbar />
       <br />
       {!authUser && <Route path="/" exact component={Signup} />}
-      {authUser && <Route path="/" exact component={Dashboard} />}
       {!authUser && <Route path="/login" exact component={Login} />}
       {authUser && <Route path="/edit" exact component={Edit} />}
       {authUser && <Route path="/edit/:id"  component={EditStory} />}

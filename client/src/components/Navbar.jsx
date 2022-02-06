@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 
  const Navbar = () => {
+    const logOutHandler = () => {
+      localStorage.clear();
+      window.location = "/login";
+    }
 
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
@@ -22,6 +26,9 @@ import { Link } from 'react-router-dom';
           <Link to="/add" className="nav-link">Add Story</Link>
           </li>
         </ul>
+        </div>
+        <div className='right_btn'>
+          <button type="button" className="btn btn-light" onClick={logOutHandler}>LogOut</button>
         </div>
       </nav>
     );
