@@ -10,7 +10,7 @@ const Dashboard = () => {
         likes: '',
         date: ''
     }]);
-    const [user, setUser] = useState('');
+    // const [user, setUser] = useState('');
     const [liked, setLiked] = useState(false);
     const [didMount, setDidMount] = useState(false); 
 
@@ -23,15 +23,15 @@ const Dashboard = () => {
    return () => setDidMount(false);
     },[stories]);
 
-    const checkLike = (ID) => {
-        axios.get(`http://localhost:5000/stories/likes/${ID}`)
-        .then(res => {
-            let data = res.data;
-            if(data.includes(user)){
-                return setLiked(true);
-            }
-        })
-    }
+    // const checkLike = (ID) => {
+    //     axios.get(`http://localhost:5000/stories/likes/${ID}`)
+    //     .then(res => {
+    //         let data = res.data;
+    //         if(data.includes(user)){
+    //             return setLiked(true);
+    //         }
+    //     })
+    // }
     return <div className={classes.container}>
         {
         stories.sort(function (a, b) {

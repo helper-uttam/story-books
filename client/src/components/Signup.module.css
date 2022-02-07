@@ -25,7 +25,7 @@
     transition: 2s;
     cursor: pointer;
     border: none;
-    padding: 10%;
+    padding: 7%;
 }
 .btn:hover{
     background-color: #535c68;
@@ -36,6 +36,18 @@
 .title > h3{
     font-size: 3rem;
     font-family: 'Supermercado One', cursive;
+}
+.validation{
+    margin-top: 5%;
+    text-align: left;
+    font-family: 'Arial';
+    font-size: 10px;
+}
+.valid{
+    color: green;
+}
+.notValid{
+    color: salmon;
 }
 .footer{
     left: 0;

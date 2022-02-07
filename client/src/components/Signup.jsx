@@ -9,30 +9,110 @@ const Signup = () => {
         email: '',
         password: ''
     });
-
+    const [isValid, setIsValid] = useState(true);
+    const [firstValid, setFirst] = useState(false);
+    const [secondValid, setSecond] = useState(false);
+    const [thirdValid, setThird] = useState(false);
+    const [fourthValid, setFourth] = useState(false);
+    const capitalLetters = ['A', 'B', 'C', 'D', 'E',
+                                'F', 'G', 'H', 'I', 'J',
+                                'K', 'L', 'M', 'N', 'O',
+                                'P', 'Q', 'R', 'S', 'T',
+                                'U', 'V', 'W', 'X', 'Y',
+                                'Z'
+                            ];
+        const smalLetters = ["a", "b", "c", "d", "e", 
+                            "f", "g", "h", "i", "j", 
+                            "k", "l", "m", "n", "o", 
+                            "p", "q", "r", "s", "t", 
+                            "u", "v", "w", "x", "y", 
+                            "z"
+                            ];
+        const numeric =     ['1', '2', '3', '4', '5', '6',
+                            '7', '8', '9', '0'
+                            ];
+        const specialChar = ["+", "-", "&", "|", "!", 
+                            "(", ")", "{", "}", "[", "]", "^",
+                            "~", "*", "?", ":", "@"
+                            ];
 
     const changeHandler = (e) => {
        const { name, value } = e.target;
         setUser({
             ...users, [name]: value
         })
+        if(capitalLetters.some(v => users.password.includes(v))){
+            setFirst(true);
+        }else{
+            setFirst(false);
+        }
+        if(smalLetters.some(v => users.password.includes(v))){
+            setSecond(true);
+        }else{
+            setSecond(false);
+        }
+        if(numeric.some(v => users.password.includes(v))){
+            setThird(true);
+        }else{
+            setThird(false);
+        }
+        if(specialChar.some(v => users.password.includes(v))){
+            setFourth(true);
+        }else{
+            setFourth(false);
+        }
+        if(firstValid && secondValid && thirdValid && fourthValid){
+            setIsValid(true);
+        }else{
+            setIsValid(false);
+        } 
     };
 
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/users/add', users)
-        .then(()=>{
-            localStorage.setItem('email', users.email);
-            history.push('/home');
-            window.location.reload();
-            setUser({
-                email: '',
-                password: ''
-            })    
-        })
-        .catch(()=>{
-            history.push('/signup');
-        })
+        
+        if(capitalLetters.some(v => users.password.includes(v))){
+            setFirst(true);
+        }else{
+            setFirst(false);
+        }
+        if(smalLetters.some(v => users.password.includes(v))){
+            setSecond(true);
+        }else{
+            setSecond(false);
+        }
+        if(numeric.some(v => users.password.includes(v))){
+            setThird(true);
+        }else{
+            setThird(false);
+        }
+        if(specialChar.some(v => users.password.includes(v))){
+            console.log("ok");
+            setFourth(true);
+        }else{
+            setFourth(false);
+        }
+        if(firstValid && secondValid && thirdValid && fourthValid){
+            setIsValid(true);
+        }else{
+            setIsValid(false);
+        } 
+        
+        if(isValid){
+            axios.post('http://localhost:5000/users/add', users)
+            .then(()=>{
+                localStorage.setItem('email', users.email);
+                history.push('/home');
+                window.location.reload();
+                setUser({
+                    email: '',
+                    password: ''
+                })    
+            })
+            .catch(()=>{
+                history.push('/signup');
+            })
+        }
     };
 
     
@@ -45,6 +125,17 @@ const Signup = () => {
             <input className={classes.input} name="password" type="password" onChange={changeHandler} placeholder="Password" defaultValue={users.password} autoComplete="true"></input><br/>
             <button type="submit" className={classes.btn}>SignUp</button>
         </form>
+        {
+        !isValid &&
+        <div className={classes.validation}>
+            <ul style={{listStyleType: "circle"}}>
+                <li className={firstValid? classes.valid : classes.notValid}>at least 1 upper case letter [A-Z] </li>
+                <li className={secondValid? classes.valid: classes.notValid}>at least 1 lower case letter [a-z] </li>
+                <li className={thirdValid? classes.valid: classes.notValid}>at least 1 numeric character [0-9] </li>
+                <li className={fourthValid? classes.valid: classes.notValid}>at least 1 special character </li>
+            </ul>
+        </div>
+        }
         <footer className={classes.footer}>
             <div className={classes.icons}>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-github" viewBox="0 0 16 16">
