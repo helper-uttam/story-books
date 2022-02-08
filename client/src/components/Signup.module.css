@@ -50,8 +50,8 @@
     color: salmon;
 }
 .footer{
-    left: 0;
-    bottom: 0px;
+    position: relative;
+    margin-top: 4%;
     width: 100%;
     text-align: center;
     font-size: 30px;

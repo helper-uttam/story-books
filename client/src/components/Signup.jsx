@@ -87,7 +87,6 @@ const Signup = () => {
             setThird(false);
         }
         if(specialChar.some(v => users.password.includes(v))){
-            console.log("ok");
             setFourth(true);
         }else{
             setFourth(false);
@@ -99,6 +98,7 @@ const Signup = () => {
         } 
         
         if(isValid){
+            console.log(users);
             axios.post('http://localhost:5000/users/add', users)
             .then(()=>{
                 localStorage.setItem('email', users.email);
