@@ -15,7 +15,7 @@ const Dashboard = () => {
     const [didMount, setDidMount] = useState(false); 
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/stories/')
+        axios.get('https://story-books-service.herokuapp.com/stories/')
         .then(res => res.data)
         .then(data => setStories(data))
         .catch(err => console.log(err))

@@ -27,7 +27,7 @@ const AddStory = () => {
         console.log(story);
         
         e.preventDefault();
-        axios.post('http://localhost:5000/stories/add/', story)
+        axios.post('https://story-books-service.herokuapp.com/stories/add/', story)
         .then(res => console.log(res))
         .catch(err => console.log(err))
         history.push('/home');

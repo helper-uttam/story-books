@@ -20,7 +20,7 @@ const EditStory = (props) => {
         story.date = dateOfStory.toString();
         console.log(story);
 
-        axios.post('http://localhost:5000/stories/update/'+id, story)
+        axios.post('https://story-books-service.herokuapp.com/stories/update/'+id, story)
         .then(res => console.log(res))
         .catch(err => console.log(err))
         props.renderForm(false);

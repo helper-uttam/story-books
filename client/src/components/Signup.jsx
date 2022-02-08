@@ -99,7 +99,7 @@ const Signup = () => {
         
         if(isValid){
             console.log(users);
-            axios.post('http://localhost:5000/users/add', users)
+            axios.post('https://story-books-service.herokuapp.com/users/add', users)
             .then(()=>{
                 localStorage.setItem('email', users.email);
                 history.push('/home');

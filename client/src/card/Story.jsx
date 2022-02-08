@@ -22,7 +22,7 @@ const Story = (props) => {
     
     const deleteHandler = (e) => {
         const id = e.target.value;
-        axios.delete('http://localhost:5000/stories/'+ id)
+        axios.delete('https://story-books-service.herokuapp.com/stories/'+ id)
         .then(res => console.log(res))
         .catch(err => console.log(err));
         setDel(true);
