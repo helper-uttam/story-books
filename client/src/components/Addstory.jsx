@@ -33,7 +33,7 @@ const AddStory = () => {
         history.push('/home');
     }
     return <div className={classes.container}>
-        <h1>Here is the place to add your story!</h1>
+        <h1 className={classes.title}>Here is the place to add your story!</h1>
         <div className={classes.input__container}>
             <input name='title' placeholder='Your Story Title' onChange={inputHandler} /> 
             <textarea name='description' placeholder='Type your story here...' onChange={inputHandler} />  

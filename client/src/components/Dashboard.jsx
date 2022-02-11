@@ -10,32 +10,25 @@ const Dashboard = () => {
         likes: '',
         date: ''
     }]);
-    // const [user, setUser] = useState('');
-    const [liked, setLiked] = useState(false);
+    
     const [didMount, setDidMount] = useState(false); 
 
     useEffect(()=>{
         axios.get('https://story-books-service.herokuapp.com/stories/')
         .then(res => res.data)
-        .then(data => setStories(data))
+        .then(data => {
+            setStories(data)
+            setDidMount(true)
+        })
         .catch(err => console.log(err))
-        setDidMount(true);
-   return () => setDidMount(false);
     },[stories]);
 
-    // const checkLike = (ID) => {
-    //     axios.get(`http://localhost:5000/stories/likes/${ID}`)
-    //     .then(res => {
-    //         let data = res.data;
-    //         if(data.includes(user)){
-    //             return setLiked(true);
-    //         }
-    //     })
-    // }
+    if(!didMount)
+        return <div className={classes.loading}><h1>Loading...</h1></div>
+    else
     return <div className={classes.container}>
         {
         stories.sort(function (a, b) {
-            // console.log(a.likes + " " + b.likes);
             return b.likes.length - a.likes.length;
         }).map((story, index) => {
             let likes = story.likes;
@@ -46,7 +39,6 @@ const Dashboard = () => {
                 title={story.title}
                 description={story.description}
                 likes={len.length}
-                liked={liked}
                 date={story.date}
                 />
         </div>

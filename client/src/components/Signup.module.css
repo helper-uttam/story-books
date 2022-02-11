@@ -43,12 +43,7 @@
     font-family: 'Arial';
     font-size: 10px;
 }
-.valid{
-    color: green;
-}
-.notValid{
-    color: salmon;
-}
+
 .footer{
     position: relative;
     margin-top: 4%;

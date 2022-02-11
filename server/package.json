@@ -1,18 +1,25 @@
 {
-  "name": "assignment",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "cors": "^2.8.5",
-    "mongoose": "^6.2.0",
-    "nodemon": "^2.0.15",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "my_package",
+  "description": "",
+  "version": "1.0.0",
   "scripts": {
-    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "14.17.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helper-uttam/story-books.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/helper-uttam/story-books/issues"
+  },
+  "homepage": "https://github.com/helper-uttam/story-books.git",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1"
   }
 }
