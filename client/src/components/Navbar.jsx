@@ -4,22 +4,14 @@ import { Link } from 'react-router-dom';
 
  const Navbar = () => {
    const [logout, setLogout] = useState(false);
-<<<<<<< HEAD
-   
-=======
 
->>>>>>> eefe86994d17063274368d07e867888f37db606c
    useEffect(()=>{
       const a = localStorage.getItem('email');
       if(a){
         setLogout(true);
       }
    },[logout]);
-<<<<<<< HEAD
-   
-=======
 
->>>>>>> eefe86994d17063274368d07e867888f37db606c
    const logOutHandler = () => {
       localStorage.clear();
       window.location = "/login";
