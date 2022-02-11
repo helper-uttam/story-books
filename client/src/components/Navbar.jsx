@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
  const Navbar = () => {
-    const logOutHandler = () => {
+   const [logout, setLogout] = useState(false);
+   
+   useEffect(()=>{
+      const a = localStorage.getItem('email');
+      if(a){
+        setLogout(true);
+      }
+   },[logout]);
+   
+   const logOutHandler = () => {
       localStorage.clear();
       window.location = "/login";
     }
@@ -27,9 +36,9 @@ import { Link } from 'react-router-dom';
           </li>
         </ul>
         </div>
-        <div className='right_btn'>
+        {logout && <div className='right_btn'>
           <button type="button" className="btn btn-light" onClick={logOutHandler}>LogOut</button>
-        </div>
+        </div>}
       </nav>
     );
   

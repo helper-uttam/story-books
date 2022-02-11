@@ -12,6 +12,7 @@ const Dashboard = () => {
     }]);
     
     const [didMount, setDidMount] = useState(false); 
+    const [mount, setMount] = useState(false);
 
     useEffect(()=>{
         axios.get('https://story-books-service.herokuapp.com/stories/')
@@ -21,6 +22,7 @@ const Dashboard = () => {
             setDidMount(true)
         })
         .catch(err => console.log(err))
+        setMount(true)
     },[stories]);
 
     if(!didMount)
