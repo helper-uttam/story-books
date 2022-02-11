@@ -16,7 +16,7 @@ const msg = (userNumber, bodyOfMsg) => {
       .create({ 
          body: bodyOfMsg, 
          from: `whatsapp:+${process.env.FROM}`,       
-         to: `whatsapp:+91${userNumber}` 
+         to: `whatsapp:+${userNumber}` 
        }) 
       .then(message => console.log(message)) 
       .done();
