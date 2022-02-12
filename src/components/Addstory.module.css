@@ -1,0 +1,71 @@
+.container{
+    text-align: center;
+}
+.title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3rem;
+}
+.input__container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+    margin-top: 3%;
+    width: 40%;
+}
+.input__container > input{
+    height: 70px;
+    margin: 2%;
+    font-size: 2rem;
+    border: none;
+    border-bottom: solid 1px;
+    padding: 3%;
+    border-radius: 10px;
+}
+.input__container > textarea{
+    height: 400px;
+    margin: 2%;
+    padding: 1%;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+}
+.btn{
+    font-size: 2rem;
+    transition: 2s;
+    cursor: pointer;
+    border: none;
+    padding: 2%;
+    background-color: #535c68;
+    color: white;
+    border-radius: 20px;
+    width: 90%;
+    margin-left: 5%;
+}
+.btn:hover{
+    color: white;
+    border: none;
+    border-radius: 50px;
+    background-color: #2ecc71;
+}
+@media screen and (max-width: 650px) {
+    .input__container{
+        display: flex;
+        flex-direction: column;
+        margin: 3%;
+        width: 90%;
+    }
+    .input__container > input{
+        height: 50px;
+        margin: 2%;
+        font-size: 1.6rem;
+        border: none;
+        border-bottom: solid 1px;
+        padding: 3%;
+    }
+    .input__container > textarea{
+        height: 200px;
+        margin-top: 2%;
+        font-size: 1.2rem;
+        border: none;
+    }
+}
