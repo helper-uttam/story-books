@@ -44,7 +44,42 @@ router.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
   });
 
-  
+  //like
+  router.route('/like/:id').post((req, res) => {
+    const likedUser = req.body.email;
+    console.log(likedUser);
+    Stories.findById(req.params.id)
+      .then(stories => {
+        stories.likes = stories.likes + ',' + likedUser;
+        console.log(stories.likes.split(',')
+        );
+        stories.save()
+          .then(() => res.json('Story Liked!'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      })
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
+  //dislike
+  router.route('/dislike/:id').post((req, res) => {
+    const dislikedUser = req.body.email;
+    console.log(dislikedUser);
+    Stories.findById(req.params.id)
+      .then(stories => {
+        let obj = stories.likes.split(',');
+        console.log(stories);
+        let updatedLikes = obj.filter((value) => { 
+          return value !== dislikedUser;
+      });
+      stories.likes=updatedLikes.toString(),
+      console.log(stories);
+      stories.save()
+          .then(() => res.json('Story Disiked!'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      })
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
   router.route('/update/:id').post((req, res) => {
     Stories.findById(req.params.id)
       .then(stories => {
