@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import EditStory from "../components/EditStory";
 import classes from "./story.module.css";
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { FcSpeaker } from 'react-icons/fc';
 
 const Story = (props) => {
@@ -84,7 +83,10 @@ const Story = (props) => {
     return  <div className={classes.story}>
         {
             !showEditForm && <>
-            <div className={classes.title}><h3>{props.title}</h3></div>
+            <div className={classes.title}>
+                <h3 className={classes.heading}>{props.title}</h3>
+                <button style={{ border: "none", borderRadius:"20px", backgroundColor:"#dcdde1"}} onClick={speakContent}><FcSpeaker /></button>
+            </div>
                 <div className={classes.description}><p>{props.description}</p></div>
                 <div className={classes.btn}>
                 <button id={props.id} type="submit" value={props.id} className={classes.like} onClick={likeHandler}>
@@ -104,8 +106,7 @@ const Story = (props) => {
                     </svg>
                 </button>
                 </div>
-                <p style={{color:"gray"}}> Published on {props.date}
-                <button style={{ float: "right", marginRight: "25px"}} onClick={speakContent}><FcSpeaker /></button></p>
+                <p style={{color:"gray"}}> Published on {props.date}</p>
             </div>
             </>
         }
