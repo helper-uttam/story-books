@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 60vh;
+}
+.item{
+    margin: 3%;
+}
+.loading{
+    min-width: 100vw;
+    min-height: 100vh;
+    text-align: center;
+}
+@media screen and (max-width: 650px) {
+    .container{
+        height: 60vh;
+        overflow-y: scroll;
+    }
+}

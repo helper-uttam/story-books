@@ -1,0 +1,72 @@
+.story{
+    text-align: center;
+    padding: 2%;
+    width: 400px;
+    height: 500px;
+    box-shadow: 3px 6px 5px 0px;
+    border-radius: 15px;
+    background-color: white;
+
+}
+.title{
+    font-size: 2rem;
+    font-family: 'Supermercado One', cursive;
+}
+.description{
+    line-height: 2;
+    padding: 5%;
+    height: 50%;
+    border-radius: 20px;
+    overflow-y: scroll;
+    font-family: 'Arial';
+}
+.btn{
+    margin-top: 5%;
+}
+.delete{
+    margin: 3%;
+    width: 40%;
+    border: none;
+    background-color: #ff7979;
+    color: white;
+    transition: 1s;
+}
+.delete:hover{
+    background-color: #d63031;
+}
+.edit{
+    margin: 3%;
+    width: 40%;
+    border: none;
+    background-color: #38ada9;
+    color: white;
+    transition: 1s;
+}
+.edit:hover{
+    background-color: #079992;
+}
+.like{
+    display: flex;
+    margin-left: 40%;
+    width: 100px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+.like>p{
+    margin: 3%;
+}
+.buttons{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+@media screen and (max-width: 650px) {
+    .story{
+        margin-left: 3%;
+        width: 250px;
+        height: 500px;
+    }
+    .description{
+       text-align: left;
+    }
+}
