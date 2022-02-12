@@ -1,8 +1,8 @@
 version: "3"
 services:
   react-app:
-    image: react-app
-    build: ./client/
+    image: codingnightmare/react-app:1.0
+    # build: ./client/
     stdin_open: true
     ports: 
       - "3000:3000"
@@ -12,8 +12,8 @@ services:
       - ./server/:/usr/src/app
       - /usr/src/app/node_modules
   api-server:
-    image: api-server
-    build: ./server/
+    image: codingnightmare/story-book-server:1.0
+    # build: ./server/
     ports:
       - "5000:5000"
     networks:
