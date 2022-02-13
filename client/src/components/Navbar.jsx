@@ -22,9 +22,9 @@ import { Link } from 'react-router-dom';
         <Link to="/" className="navbar-brand">Story Books</Link>
         <div className="collpase navbar-collapse">
         <ul className="navbar-nav mr-auto">
-          <li className="navbar-item">
+          {/* <li className="navbar-item">
           <Link to="/" className="nav-link">SignUp</Link>
-          </li>
+          </li> */}
           <li className="navbar-item">
           <Link to="/login" className="nav-link">Login</Link>
           </li>

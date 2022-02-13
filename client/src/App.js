@@ -5,7 +5,7 @@ import classes from "./App.module.css";
 
 import Navbar from './components/Navbar';
 import Edit from './components/EditStory';
-import Signup from './components/Signup';
+// import Signup from './components/Signup';
 import Login from './components/Login';
 import EditStory from './components/EditStory';
 import AddStory from './components/Addstory';
@@ -26,7 +26,7 @@ function App() {
         <div className={classes.container}></div>
         <Navbar />
         <br />
-        {!authUser && <Route path="/" exact component={Signup} />}
+        {!authUser && <Route path="/" exact component={Login} />}
         {!authUser && <Route path="/login" exact component={Login} />}
         {authUser && <Route path="/edit" exact component={Edit} />}
         {authUser && <Route path="/edit/:id"  component={EditStory} />}
