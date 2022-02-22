@@ -11,6 +11,11 @@
 .title{
     font-size: 2rem;
     font-family: 'Supermercado One', cursive;
+    display: flex;
+    justify-content: space-between;
+}
+.heading{
+    margin-left: 10%;
 }
 .description{
     line-height: 2;

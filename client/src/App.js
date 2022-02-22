@@ -5,12 +5,13 @@ import classes from "./App.module.css";
 
 import Navbar from './components/Navbar';
 import Edit from './components/EditStory';
-import Signup from './components/Signup';
 import Login from './components/Login';
 import EditStory from './components/EditStory';
 import AddStory from './components/Addstory';
+import Welcome from './components/Welcome';
 
 const Dashboard = React.lazy(() => import('./components/Dashboard'));
+
 function App() {
   const [authUser, setAuth] = useState('');
   //setting the parent body color
@@ -26,7 +27,8 @@ function App() {
         <div className={classes.container}></div>
         <Navbar />
         <br />
-        {!authUser && <Route path="/" exact component={Signup} />}
+        {!authUser && <Route path="/" exact component={Login} />}
+        {authUser && <Route path="/" exact component={Welcome} />}
         {!authUser && <Route path="/login" exact component={Login} />}
         {authUser && <Route path="/edit" exact component={Edit} />}
         {authUser && <Route path="/edit/:id"  component={EditStory} />}
