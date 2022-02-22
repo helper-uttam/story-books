@@ -1,11 +1,13 @@
 import classes from "./Login.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Sawo from 'sawo';
 
 
 const Login = () => {
+    const [width, setWidth] = useState();
     const history = useHistory();
+    
     useEffect(() => {
         var config = {
             // should be same as the id of the container created on 3rd step
@@ -26,6 +28,7 @@ const Login = () => {
         }
         let sawo = new Sawo(config)
         sawo.showForm()
+        setWidth(window.innerWidth);
     }, [])
   
     
@@ -41,7 +44,7 @@ const Login = () => {
                 </div>
             </div>
             <div className={classes.sawoContainer}>
-                <div className={classes.sawo} id="sawo-container" style={{height:"400px", width:"500px"}}></div>
+                <div className={classes.sawo} id="sawo-container" style={width > 600 ? {height:"400px", width:"500px"}: {marginTop: "10px", height:"250px", width:"270px"}}></div>
             </div>
     </div> 
 }

@@ -34,9 +34,10 @@
     .container{
         display: flex;
         flex-direction: column;
+        padding: 0px 20px;
     }
     .img{
-        width: 100vw;
+        width: 90vw;
     }
     .wpDescription{
         width: 100vw;
@@ -44,5 +45,11 @@
     .wpDescription>h3{
         line-height: 1;
         margin-bottom: 30px;
+    }
+    
+    .sawo{
+        height: 100%;
+        width: 100px;
+        box-shadow: 0 4px 4px 0;
     }
 }

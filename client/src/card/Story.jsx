@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import EditStory from "../components/EditStory";
 import classes from "./story.module.css";
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { FcSpeaker } from 'react-icons/fc';
 
 const Story = (props) => {
